@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Poppins, sans-serif;
+}
+
+.bg-dark {
+  background: linear-gradient(90deg, rgba(18, 32, 47, 1) 0%, rgba(35, 41, 122, 1) 50%, rgba(45, 53, 140, 1) 100%);
+  color: white; 
+}
+
+.bg-light {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  color: black; 
+}
+
+/* image animation */
+@keyframes move-up-down {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); 
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.image-move {
+  animation: move-up-down 3s ease-in-out infinite; 
+}
+
+
+/* gradients for bg of about section */
+.bg-gradient {
+  background: linear-gradient(90deg, rgba(165,215,232,0.42) 0%, rgba(255,255,255,0) 100%);
+  background-size: 0 100%;
+}
+
+.bg-gradient:hover {
+  background-size: 100% 100%;
+}
+
+
+/* Gradient for project  card background  */
+.card-bg {
+  background: linear-gradient(180deg, #576CBC -14.75%, #132A53 50.1%);
+}
+
+/* bg for contact from */
+@media (min-width: 768px) { /* Medium screens and larger */
+  .water-bg {
+    background: linear-gradient(to bottom, #a8d8ea, #4fb5e8); /* Light blue to deep blue */
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    opacity: 70;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+/* Add these styles to your CSS file */
+.gradient-bg {
+  background-image: linear-gradient(to right, #6EE7B7, #3B82F6);
+  background-size: 200% 100%; /* Make the gradient twice as wide */
+  background-position: left; /* Start at the left */
+  transition: background-position 0.5s ease; /* Smooth transition for background position */
+}
+
+.gradient-bg:hover {
+  background-position: right; /* Move to the right on hover */
+}
