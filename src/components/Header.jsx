@@ -22,7 +22,7 @@ const Header = () => {
     const linkTextColor = darkMode ? "text-white" : "text-black";
 
     return (
-        <nav className={`md:flex fixed top-0 w-full ${darkMode ? 'bg-gray-800' : 'bg-white'} z-50 md:bg-transparent lg:${darkMode ? "bg-gray-800" : "bg-transparent"}`}>
+        <nav className={`md:flex fixed top-0 w-full z-50 ${darkMode ? 'bg-gray-900' : 'bg-white'} shadow-md`}>
             <div className="max-w-screen-xl flex items-center justify-between md:justify-start mx-auto p-2">
                 <Link to="/" className={`text-2xl md:text-4xl lg:text-4xl font-bold ${linkTextColor} md:my-2 md:mr-auto md:me-36 lg:-ms-44 xl:-ms-64`}>Portfolio</Link>
                 <button 

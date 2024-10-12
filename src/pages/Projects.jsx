@@ -4,7 +4,7 @@ import { projectsData } from '../projects.js';
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
-  
+
   const darkMode = useSelector((state) => state.theme.darkMode);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div 
               key={index} 
-              className={`rounded-lg overflow-hidden ${darkMode ? 'bg-gray-800 shadow-lg' : 'bg-white shadow-xl'} transition-colors duration-300`}
+              className={`rounded-lg overflow-hidden shadow-lg transition-colors duration-300 ${darkMode ? 'bg-gradient-to-r from-gray-800 to-gray-900' : 'bg-white border border-gray-200'}`}
             >
               <img src={project.imageSrc} alt={project.title} className="w-full p-2 rounded-sm my-2 object-cover mx-auto" />
               <div className={`p-4 ${darkMode ? 'text-white' : 'text-gray-800'}`}>

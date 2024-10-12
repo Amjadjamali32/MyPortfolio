@@ -11,7 +11,7 @@ const Hero = () => {
                 <img 
                     src={picture}
                     alt="Amjad Ali" 
-                    className="w-full h-auto mx-auto rounded-lg object-cover sm:w-8/12 md:w-9/12" 
+                    className="w-full h-auto mx-auto rounded-lg object-cover sm:w-8/12 md:w-9/12 image-move" 
                 />
             </div>
             <div className={`flex-1 order-2 md:order-1 sm:order-1 p-4 md:justify-center ${darkMode ? 'text-white' : 'text-black'}`}> 
@@ -23,7 +23,7 @@ const Hero = () => {
                 </p>
                 <div className='flex justify-center md:justify-start'> 
                     <a href="mailto:amjadalijamali41@gmail.com" className="inline-block">
-                        <button className="px-6 py-2 font-bold bg-blue-800 text-white rounded-full hover:bg-blue-600 transform hover:scale-110 transition-transform duration-300 ease-in-out lg:mt-8 lg:px-20">
+                        <button className="px-6 py-2 font-bold bg-gradient-to-r from-indigo-500 text-white rounded-full hover:bg-blue-600 transform hover:scale-110 transition-transform duration-300 ease-in-out lg:mt-8 lg:px-20">
                             Contact Me
                         </button>
                     </a>

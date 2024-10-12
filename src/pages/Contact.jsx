@@ -11,7 +11,7 @@ const Contact = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm("xyzyyzdr");
 
   const onSubmit = (data) => {
     console.log(data);

@@ -9,7 +9,7 @@ const Footer = () => {
     const darkMode = useSelector((state) => state.theme.darkMode);
     
     return (
-        <footer className={`${darkMode ? 'bg-blue-900' : 'bg-light'} py-5`}>
+        <footer className={`${darkMode ? 'bg-gradient-to-r from-indigo-500' : 'bg-light'} py-5 shadow-sm`}>
             <div className="max-w-screen-lg justify-center mx-auto px-4 md:flex md:justify-center sm:justify-center">
                 <div className="flex flex-col items-center justify-center mb-4 md:flex-row">
                     <h2 className="text-3xl font-bold my-2 text-center md:mx-10">Feel Free to Reach Out!</h2>
