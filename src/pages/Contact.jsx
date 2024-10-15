@@ -130,7 +130,7 @@ const Contact = () => {
               </div>
 
               {/* reCAPTCHA */}
-              <div className="g-recaptcha" data-sitekey="your-recaptcha-site-key"></div>
+              <div className="g-recaptcha" data-sitekey="6Le_SWIqAAAAABKBPcYfcrs1xk78NgW3G_erxL9a "></div>
               
               <button 
                 type="submit" 
