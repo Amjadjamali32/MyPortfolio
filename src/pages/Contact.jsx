@@ -11,7 +11,7 @@ const Contact = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm("xyzyyzdr");
+  } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -53,10 +53,22 @@ const Contact = () => {
     <>
       <section id='contact' className={`py-8 ${darkMode ? 'bg-dark' : 'bg-light'} mb-4`}>
         <h2 className='text-center font-bold text-3xl sm:mb-7 md:mb-7'>CONTACT</h2>
-        <div className="max-w-4xl mx-auto md:grid md:grid-cols-4 md:gap-4 sm:gap-2 md:h-[500px]">
+        <div className="max-w-4xl mx-auto md:grid md:grid-cols-4 md:gap-4 sm:gap-2 md:h-[500px] sm:mb-10 md:mb-12">
           <div className={`p-6 rounded-lg ${darkMode ? 'bg-dark md:shadow-md' : 'bg-white md:shadow-lg'} h-full flex flex-col justify-between col-span-2 sm:col-span-2`}>
             <h2 className={`text-3xl text-center font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-gray-800'}`}>Get in touch &darr;</h2>
-            <form className="space-y-6 flex-1" onSubmit={handleSubmit(onSubmit)}>
+            {/* Add netlify form attributes */}
+            <form 
+              className="space-y-6 flex-1"
+              onSubmit={handleSubmit(onSubmit)} 
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              data-netlify-recaptcha="true"
+              name="contact-form"
+            >
+              {/* Honeypot field */}
+              <input type="hidden" name="bot-field" />
+              
               <div>
                 <label 
                   htmlFor="username" 
@@ -116,6 +128,10 @@ const Contact = () => {
                 />
                 {errors.user_message && <p className="text-red-400 mt-1 text-sm">{errors.user_message.message}</p>}
               </div>
+
+              {/* reCAPTCHA */}
+              <div className="g-recaptcha" data-sitekey="your-recaptcha-site-key"></div>
+              
               <button 
                 type="submit" 
                 className={`text-white bg-blue-800 hover:opacity-80 focus:ring-4 focus:ring-blue-500 font-semibold rounded-md w-full py-3 mt-4 transition-colors ${darkMode ? 'bg-blue-800' : 'bg-blue-600'}`}

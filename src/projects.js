@@ -1,7 +1,11 @@
+import portfolioImage from "./assets/portfolio.png"
+import weatherAppImage from "./assets/weatherApp.png"
+import HealthcareAssistantImage from "./assets/assistant.png"
+
 export const projectsData = [
     {
         "title": "Personal Portfolio Website",
-        "imageSrc": "/src/assets/portfolio.png",
+        "imageSrc": portfolioImage,
         "description": "A dynamic online portfolio showcasing my skills, projects, and experiences. . It highlights my journey as a developer.",
         "skills": ["Bootstrap", "JavaScript", "CSS3"],
         "demo": "https://amjadjamali.netlify.app/",
@@ -9,7 +13,7 @@ export const projectsData = [
     },
     {
         "title": "Weather App",
-        "imageSrc": "/src/assets/weatherApp.png",
+        "imageSrc": weatherAppImage,
         "description": "An interactive weather application that provides real-time weather updates and forecasts based on user location",
         "skills": ["React", "CSS", "Git", "Github"],
         "demo": "https://openweather-beta.netlify.app",
@@ -17,7 +21,7 @@ export const projectsData = [
     },
     {
         "title": "AI Healthcare Assistant",
-        "imageSrc": "/src/assets/assistant.png",
+        "imageSrc": HealthcareAssistantImage,
         "description": "An intelligent healthcare assistant designed to support medical professionals by providing accurate diagnostic suggestions.",
         "skills": ["React", "Express", "Node"],
         "demo": "/",
