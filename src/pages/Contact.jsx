@@ -60,12 +60,11 @@ const Contact = () => {
               onSubmit={handleSubmit(onSubmit)}
               method="POST"
               data-netlify="true"
-              data-netlify-honeypot="bot-field"
+              netlify-honeypot="bot-field"
               data-netlify-recaptcha="true"
               name="contact-form"
             >
-
-              {/* Honeypot field */}
+              
               <input type="hidden" name="bot-field" />
               
               <div className='mb-4'>
