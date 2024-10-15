@@ -57,15 +57,15 @@ const Contact = () => {
           <div className={`p-6 rounded-lg ${darkMode ? 'bg-dark md:shadow-md' : 'bg-white md:shadow-lg'} h-full flex flex-col justify-between col-span-2 sm:col-span-2`}>
             <h2 className={`text-3xl text-center font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-gray-800'}`}>Get in touch &darr;</h2>
             {/* Add netlify form attributes */}
-            <form 
-              className="space-y-6 flex-1"
-              onSubmit={handleSubmit(onSubmit)} 
+            <form
+              action="/contact" // Replace with your actual form page URL
               method="POST"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               data-netlify-recaptcha="true"
               name="contact-form"
             >
+
               {/* Honeypot field */}
               <input type="hidden" name="bot-field" />
               
@@ -90,14 +90,15 @@ const Contact = () => {
               </div>
               <div>
                 <label 
-                  htmlFor="email" 
+                  htmlFor="user_mail" 
                   className={`block text-sm font-medium ${darkMode ? 'text-gray-200' : 'text-gray-800'}`}
                 >
                   Your Email
                 </label>
                 <input 
                   type="email" 
-                  id="email" 
+                  id="user_mail" 
+                  name="email"
                   {...register('email', {
                     required: 'Email is required!',
                     pattern: {
@@ -130,7 +131,7 @@ const Contact = () => {
               </div>
 
               {/* reCAPTCHA */}
-              <div className="g-recaptcha" data-sitekey="6Le_SWIqAAAAABKBPcYfcrs1xk78NgW3G_erxL9a "></div>
+              <div className="g-recaptcha" data-sitekey="6Le_SWIqAAAAABKBPcYfcrs1xk78NgW3G_erxL9a"></div>
               
               <button 
                 type="submit" 
