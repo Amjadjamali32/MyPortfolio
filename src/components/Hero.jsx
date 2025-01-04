@@ -1,4 +1,3 @@
-import React from 'react';
 import picture from "../assets/picture.png";
 import { useSelector } from 'react-redux'; 
 
@@ -6,12 +5,12 @@ const Hero = () => {
     const darkMode = useSelector((state) => state.theme.darkMode);
 
     return (
-        <section className={`md:ms-20 lg:ms-20 flex flex-col sm:flex-row items-center justify-between max-w-screen-xl mx-auto p-2 md:p-4 xl:mx-auto`}>
+        <section className={`md:ms-20 lg:ms-20 flex flex-col sm:flex-row items-center justify-between max-w-screen-xl mx-auto p-2 md:p-4 xl:ms-16`}>
             <div className="lg:ms-48 flex-1 order-1 sm:order-2 md:order-2 p-4 md:mx-auto"> 
                 <img 
                     src={picture}
                     alt="Amjad Ali" 
-                    className="w-full h-auto mx-auto rounded-lg object-cover sm:w-8/12 md:w-9/12 image-move" 
+                    className="w-full h-auto mx-auto rounded-lg object-cover sm:w-6/12 md:w-7/12 lg:w-7/12 image-move" 
                 />
             </div>
             <div className={`flex-1 order-2 md:order-1 sm:order-1 p-4 md:justify-center ${darkMode ? 'text-white' : 'text-black'}`}> 
