@@ -4,8 +4,26 @@ import HealthcareAssistantImage from "./assets/assistant.png"
 import blogifyImage from "./assets/blogify.png"
 import taskManagerImage from "./assets/task_manager.png"
 import ecommerceStoreImage from "./assets/aj.png"
+import ecomImage from "./assets/ecommerce.png"
+import crimeGPT from "./assets/crimegpt.png"
 
 export const projectsData = [
+    {
+        "title": "Crime-GPT (A Crime Reporting System with AI)",
+        "imageSrc": crimeGPT,
+        "description": "A web-based application that simplifies crime reporting using AI and NLP.",
+        "skills": ["MERN", "JavaScript", "Node.js"],
+        "demo": "https://amjadjamali.netlify.app/",
+        "source": "https://github.com/Amjadjamali32/MyPersonalPortfolio.git"
+    },
+    {
+        "title": "E-commerce Website",
+        "imageSrc": ecomImage,
+        "description": "A fully responsive e-commerce platform developed using React.js and Node.js. Users can browse products, manage a cart, and place orders.",
+        "skills": ["React.js", "JavaScript", "Node.js"],
+        "demo": "https://amjadjamali.netlify.app/",
+        "source": "https://github.com/Amjadjamali32/MyPersonalPortfolio.git"
+    },
     {
         "title": "Personal Portfolio Website",
         "imageSrc": portfolioImage,

@@ -67,7 +67,7 @@ const Projects = () => {
               key={index}
               variants={item}
               whileHover={hoverEffect}
-              className={`rounded-xl overflow-hidden shadow-xl transition-all duration-300 ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900' : 'bg-white'}`}
+              className={`rounded-xl overflow-hidden shadow-xl transition-all duration-300 ${darkMode ? 'bg-customColor' : 'bg-white'}`}
             >
               <div className="relative overflow-hidden">
                 <img 

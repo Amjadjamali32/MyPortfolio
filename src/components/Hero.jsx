@@ -47,7 +47,7 @@ const Hero = () => {
       id="home"
       className={`${
         darkMode ? "bg-customColor" : "bg-white"
-      } flex flex-col lg:flex-row items-center justify-center min-h-[90vh] max-w-screen-xl mx-auto px-4 py-8 md:px-8 md:py-12 relative overflow-hidden`}
+      } flex flex-col lg:flex-row items-center justify-center min-h-[90vh] max-w-screen-xl mx-auto px-4 py-8 md:px-8 md:py-12 relative overflow-hidden xl:max-w-full`}
     >
       {/* Grid Pattern Background */}
       <div

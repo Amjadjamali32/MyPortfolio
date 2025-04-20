@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { FaGraduationCap, FaCertificate } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import GoogleLogo from "../assets/google.png";
+import MetaLogo from "../assets/meta.png";
 
 const EducationCertifications = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
@@ -37,32 +39,40 @@ const EducationCertifications = () => {
   const certificationsData = [
     {
       id: 1,
-      title: "AWS Certified Solutions Architect",
-      issuer: "Amazon Web Services",
-      year: "2022",
-      credentialId: "AWS-123456",
+      title: "Google AI Essentials",
+      issuer: "Google",
+      year: "2024",
+      credentialId: "OS4NRI5094XT",
+      icon: <img src={GoogleLogo} alt="Google" className="w-7 h-7" />,
+      desc: "This is my AI Essentials certificate from Google, which I earned in 2024. It covers the fundamentals of AI and its applications.",
     },
     {
       id: 2,
-      title: "Google Professional Data Engineer",
-      issuer: "Google Cloud",
-      year: "2021",
-      credentialId: "GCP-789012",
-    },
-    {
-      id: 3,
-      title: "Certified Kubernetes Administrator",
-      issuer: "Cloud Native Computing Foundation",
-      year: "2021",
-      credentialId: "CKA-345678",
+      title: "HTML and CSS in depth",
+      issuer: "Meta",
+      year: "2023",
+      credentialId: "FFRYB4UG9R29",
+      icon: <img src={MetaLogo} alt="Meta" className="w-7 h-7" />,
+      desc: "This is my HTML and CSS in depth certificate from Meta, which I earned in 2023. It covers advanced topics in HTML and CSS.",
     },
     {
       id: 4,
-      title: "Microsoft Certified: Azure Developer Associate",
-      issuer: "Microsoft",
-      year: "2020",
-      credentialId: "MS-901234",
+      title: "Google UX Design Professional Certificate",
+      issuer: "Google",
+      year: "2024",
+      credentialId: "BBGP5IMIITE6",
+      icon: <img src={GoogleLogo} alt="Google" className="w-7 h-7" />,
+      desc: "This is my Google UX Design Professional Certificate, which I earned in 2024. It covers the principles of UX design.",
     },
+    {
+      id: 3,
+      title: "Programming With JavaScript",
+      issuer: "Meta",
+      year: "2023",
+      credentialId: "YY8KRK89RE84",
+      icon: <img src={MetaLogo} alt="Meta" className="w-7 h-7" />,
+      desc: "This is my Programming With JavaScript certificate from Meta, which I earned in 2023. It covers the fundamentals of JavaScript programming.",
+    }
   ];
 
   // Animation variants
@@ -168,10 +178,11 @@ const EducationCertifications = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
+          className="py-16 overflow-hidden"
         >
           <motion.div variants={itemVariants} className="text-center mb-12">
             <p className="text-blueColor text-center uppercase text-xl my-4">
-              Continous Learning
+              Continuous Learning
             </p>
             <h2
               className={`text-4xl font-extrabold ${
@@ -190,51 +201,121 @@ const EducationCertifications = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {certificationsData.map((cert) => (
-              <motion.div
-                key={cert.id}
-                variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
-                className={`${
-                  darkMode ? "bg-containerColor" : "bg-white"
-                } rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg`}
-              >
-                <div className="p-6">
-                  <div className="flex items-center mb-4">
-                    <div className="p-3 rounded-full bg-green-100 dark:bg-green-900 mr-4">
-                      <FaCertificate className="text-green-600 dark:text-green-400 text-xl" />
+          <div className="relative h-[400px] w-full max-w-7xl mx-auto">
+            {/* Background gradient */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div
+                className={`absolute inset-y-0 left-0 w-32 z-10 ${
+                  darkMode
+                    ? "bg-gradient-to-r from-gray-900 via-gray-900/70 to-transparent"
+                    : "bg-gradient-to-r from-white via-white/70 to-transparent"
+                }`}
+              ></div>
+              <div
+                className={`absolute inset-y-0 right-0 w-32 z-10 ${
+                  darkMode
+                    ? "bg-gradient-to-l from-gray-900 via-gray-900/70 to-transparent"
+                    : "bg-gradient-to-l from-white via-white/70 to-transparent"
+                }`}
+              ></div>
+            </div>
+
+            {/* Carousel track */}
+            <motion.div
+              className="absolute top-0 left-0 flex h-full gap-8"
+              animate={{
+                x: ["0%", "-100%"],
+              }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            >
+              {[...certificationsData, ...certificationsData].map(
+                (cert, index) => (
+                  <motion.div
+                    key={`${cert.id}-${index}`}
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.05 }}
+                    className={`flex-shrink-0 w-80 h-full ${
+                      darkMode ? "bg-containerColor" : "bg-white"
+                    } rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl`}
+                  >
+                    <div className="h-full flex flex-col p-6">
+                      <div className="flex items-center mb-4">
+                        <div
+                          className={`p-3 rounded-full mr-4 ${
+                            cert.issuer === "Google"
+                              ? "bg-blue-100 dark:bg-blue-900"
+                              : "bg-blue-100 dark:bg-blue-800"
+                          }`}
+                        >
+                          {cert.icon}
+                        </div>
+                        <h3
+                          className={`text-lg font-bold ${
+                            darkMode ? "text-white" : "text-gray-900"
+                          }`}
+                        >
+                          {cert.title}
+                        </h3>
+                      </div>
+                      <div className="flex-grow space-y-3">
+                        <p
+                          className={
+                            darkMode ? "text-blueColor" : "text-blueColor"
+                          }
+                        >
+                          <span className="font-medium">Issuer:</span>{" "}
+                          {cert.issuer}
+                        </p>
+                        <p
+                          className={darkMode ? "text-white" : "text-gray-900"}
+                        >
+                          <span className="font-medium">Year:</span> {cert.year}
+                        </p>
+                        <p
+                          className={darkMode ? "text-white" : "text-gray-900"}
+                        >
+                          <span className="font-medium">ID:</span>{" "}
+                          {cert.credentialId}
+                        </p>
+                        <p
+                          className={darkMode ? "text-white" : "text-gray-900"}
+                        >
+                          <span className="font-medium"></span>{" "}
+                          {cert.desc}
+                        </p>
+                      </div>
+                      <div className="mt-4">
+                        <button
+                          className={`px-4 py-2 rounded-lg ${
+                            darkMode
+                              ? "bg-green-800 hover:bg-green-700 text-white"
+                              : "bg-green-100 hover:bg-green-200 text-green-800"
+                          } transition-colors`}
+                        >
+                          View Credential
+                        </button>
+                      </div>
                     </div>
-                    <h3
-                      className={`text-lg font-bold ${
-                        darkMode ? "text-white" : "text-gray-900"
-                      }`}
-                    >
-                      {cert.title}
-                    </h3>
-                  </div>
-                  <div className="space-y-2">
-                    <p
-                      className={`${
-                        darkMode ? "text-blueColor" : "text-blueColor"
-                      }`}
-                    >
-                      <span className="font-medium">Issuer:</span> {cert.issuer}
-                    </p>
-                    <p
-                      className={`${darkMode ? "text-white" : "text-gray-900"}`}
-                    >
-                      <span className="font-medium">Year:</span> {cert.year}
-                    </p>
-                    <p
-                      className={`${darkMode ? "text-white" : "text-gray-900"}`}
-                    >
-                      <span className="font-medium">ID:</span>{" "}
-                      {cert.credentialId}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
+                  </motion.div>
+                )
+              )}
+            </motion.div>
+          </div>
+
+          {/* Navigation dots (optional) */}
+          <div className="flex justify-center mt-8 gap-2">
+            {certificationsData.map((_, index) => (
+              <button
+                key={index}
+                className={`w-3 h-3 rounded-full ${
+                  darkMode ? "bg-gray-600" : "bg-gray-300"
+                }`}
+                aria-label={`Go to certification ${index + 1}`}
+              />
             ))}
           </div>
         </motion.section>

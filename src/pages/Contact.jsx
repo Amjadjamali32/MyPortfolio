@@ -328,7 +328,7 @@ const Contact = () => {
                       </h4>
                       <a
                         href="mailto:amjadalijamali41@gmail.com"
-                        className={`text-lg ${
+                        className={`text-xs ${
                           darkMode
                             ? "text-blue-400 hover:text-blue-300"
                             : "text-blue-600 hover:text-blue-500"
@@ -369,14 +369,14 @@ const Contact = () => {
                         Phone
                       </h4>
                       <a
-                        href="tel:+1234567890"
-                        className={`text-lg ${
+                        href="+923262600358"
+                        className={`text-xs ${
                           darkMode
                             ? "text-blue-400 hover:text-blue-300"
                             : "text-blue-600 hover:text-blue-500"
                         }`}
                       >
-                        +92 123 4567890
+                        +92 3262600358
                       </a>
                     </div>
                   </div>
@@ -417,7 +417,7 @@ const Contact = () => {
                         Location
                       </h4>
                       <p
-                        className={`text-lg ${
+                        className={`text-xs ${
                           darkMode ? "text-gray-200" : "text-gray-700"
                         }`}
                       >
