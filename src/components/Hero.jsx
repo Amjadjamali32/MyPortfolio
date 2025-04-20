@@ -1,35 +1,127 @@
+import { useState, useEffect } from "react";
 import picture from "../assets/picture.png";
-import { useSelector } from 'react-redux'; 
+import { useSelector } from "react-redux";
+import wave from "../assets/wave.gif";
+import { motion } from "framer-motion";
 
 const Hero = () => {
-    const darkMode = useSelector((state) => state.theme.darkMode);
+  const darkMode = useSelector((state) => state.theme.darkMode);
+  const [typedText, setTypedText] = useState("");
+  const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
-    return (
-        <section className={`md:ms-20 lg:ms-20 flex flex-col sm:flex-row items-center justify-between max-w-screen-xl mx-auto p-2 md:p-4 xl:ms-16`}>
-            <div className="lg:ms-48 flex-1 order-1 sm:order-2 md:order-2 p-4 md:mx-auto"> 
-                <img 
-                    src={picture}
-                    alt="Amjad Ali" 
-                    className="w-full h-auto mx-auto rounded-lg object-cover sm:w-6/12 md:w-7/12 lg:w-7/12 image-move" 
-                />
-            </div>
-            <div className={`flex-1 order-2 md:order-1 sm:order-1 p-4 md:justify-center ${darkMode ? 'text-white' : 'text-black'}`}> 
-                <h2 className="text-3xl sm:text-3xl font-bold mb-4 text-center md:text-left lg:mb-8"> 
-                    Hi, I'm Amjad Ali
-                </h2>
-                <p className="mb-4 text-center md:text-left text-base md:text-lg"> 
-                    I am a full stack developer with 2 years of experience in web development. I also specialize in MERN Technology. Reach out if you'd like to learn more!
-                </p>
-                <div className='flex justify-center md:justify-start'> 
-                    <a href="mailto:amjadalijamali41@gmail.com" className="inline-block">
-                        <button className="px-6 py-2 font-bold bg-gradient-to-r from-indigo-500 text-white rounded-full hover:bg-blue-600 transform hover:scale-110 transition-transform duration-300 ease-in-out lg:mt-8 lg:px-20">
-                            Contact Me
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </section>
-    );
+  const skills = [
+    "Software Engineer",
+    "MERN Stack Developer",
+    "Tech Enthusiast",
+    "React.js Specialist",
+    "Node.js Developer",
+    "Full Stack Engineer",
+    "JavaScript Expert",
+  ];
+
+  useEffect(() => {
+    const typingSpeed = isDeleting ? 50 : 100;
+    const currentSkill = skills[currentSkillIndex];
+
+    const timeout = setTimeout(() => {
+      if (isDeleting) {
+        setTypedText(currentSkill.substring(0, typedText.length - 1));
+        if (typedText.length === 0) {
+          setIsDeleting(false);
+          setCurrentSkillIndex((prev) => (prev + 1) % skills.length);
+        }
+      } else {
+        setTypedText(currentSkill.substring(0, typedText.length + 1));
+        if (typedText.length === currentSkill.length) {
+          setTimeout(() => setIsDeleting(true), 1500);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [typedText, currentSkillIndex, isDeleting]);
+
+  return (
+    <section
+      id="home"
+      className={`${
+        darkMode ? "bg-customColor" : "bg-white"
+      } flex flex-col lg:flex-row items-center justify-center min-h-[90vh] max-w-screen-xl mx-auto px-4 py-8 md:px-8 md:py-12`}
+    >
+      {/* Text Content */}
+      <div className="flex-1 order-2 lg:order-1 w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left mb-8 lg:mb-0">
+        <h1
+          className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-2 ${
+            darkMode ? "text-white" : "text-black"
+          }`}
+        >
+          Hi, I'm{" "}
+          <span className="text-violet-600 dark:text-violet-400">Amjad</span>
+          <img
+            src={wave}
+            alt="wave"
+            className="w-12 h-12 sm:w-16 sm:h-16 inline-block ml-2"
+          />
+        </h1>
+
+        <div className="h-16 sm:h-20 mb-4 flex items-center">
+          <h2
+            className={`text-xl sm:text-2xl md:text-3xl font-semibold ${
+              darkMode ? "text-violet-700" : "text-blueColor"
+            }`}
+          >
+            <span className={`me-2 ${darkMode ? "text-white" : "text-black"}`}>
+              I'm a
+            </span>
+            {typedText}
+            <span className="animate-pulse text-violet-700">|</span>
+          </h2>
+        </div>
+
+        <p
+          className={`text-lg sm:text-xl md:text-2xl mb-8 max-w-lg ${
+            darkMode ? "text-gray-200" : "text-gray-700"
+          }`}
+        >
+          Full Stack Developer specializing in MERN stack with 2+ years of
+          experience building web applications.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4">
+          <a href="mailto:amjadalijamali41@gmail.com" className="inline-block">
+            <motion.button
+              whileHover={{ scale: 1.1, y: -4 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="px-8 py-3 font-bold bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full shadow-lg hover:shadow-[0_4px_20px_rgba(124,58,237,0.6)] transition-all duration-300"
+            >
+              Contact Me
+            </motion.button>
+          </a>
+        </div>
+      </div>
+
+      {/* Image */}
+      <div className="flex-1 order-1 lg:order-2 w-full lg:w-1/2 flex justify-center">
+        <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72">
+          <img
+            src={picture}
+            alt="Amjad Ali"
+            className={`w-full h-full rounded-full object-cover border-4 ${
+              darkMode ? "border-violet-500" : "border-violet-300"
+            } shadow-[0_0_20px_#7c3aed]`}
+            loading="lazy"
+          />
+          <div
+            className={`absolute inset-0 rounded-full border-4 ${
+              darkMode ? "border-violet-300" : "border-violet-700"
+            } animate-ping opacity-20`}
+          ></div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Hero;

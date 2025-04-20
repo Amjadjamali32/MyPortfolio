@@ -6,11 +6,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Poppins, sans-serif;
-}
-
-.bg-dark {
-  background: linear-gradient(90deg, rgba(18, 32, 47, 1) 0%, rgba(35, 41, 122, 1) 50%, rgba(45, 53, 140, 1) 100%);
-  color: white; 
+  background-color: rgb(17, 34, 64 / var(--tw-bg-opacity, 1));
 }
 
 .bg-light {
@@ -35,7 +31,6 @@ body {
   animation: move-up-down 3s ease-in-out infinite; 
 }
 
-
 /* gradients for bg of about section */
 .bg-gradient {
   background: linear-gradient(90deg, rgba(165,215,232,0.42) 0%, rgba(255,255,255,0) 100%);
@@ -46,16 +41,15 @@ body {
   background-size: 100% 100%;
 }
 
-
 /* Gradient for project  card background  */
 .card-bg {
   background: linear-gradient(180deg, #576CBC -14.75%, #132A53 50.1%);
 }
 
 /* bg for contact from */
-@media (min-width: 768px) { /* Medium screens and larger */
+@media (min-width: 768px) { 
   .water-bg {
-    background: linear-gradient(to bottom, #a8d8ea, #4fb5e8); /* Light blue to deep blue */
+    background: linear-gradient(to bottom, #a8d8ea, #4fb5e8); 
     border-radius: 10px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -79,14 +73,21 @@ body {
   animation: fadeIn 0.5s ease-in-out forwards;
 }
 
-/* Add these styles to your CSS file */
 .gradient-bg {
   background-image: linear-gradient(to right, #6EE7B7, #3B82F6);
-  background-size: 200% 100%; /* Make the gradient twice as wide */
-  background-position: left; /* Start at the left */
-  transition: background-position 0.5s ease; /* Smooth transition for background position */
+  background-size: 200% 100%; 
+  background-position: left; 
+  transition: background-position 0.5s ease; 
 }
 
 .gradient-bg:hover {
-  background-position: right; /* Move to the right on hover */
+  background-position: right; 
+}
+
+.logo-text {
+  font-family: 'Pacifico', cursive; 
+  font-style: italic;
+  font-size: 2rem;
+  color: violet;
+  text-shadow: 2px 2px 12px #facc15;
 }

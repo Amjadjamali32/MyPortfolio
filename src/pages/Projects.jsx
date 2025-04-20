@@ -14,7 +14,8 @@ const Projects = () => {
   return (
     <section id='projects'>
       <div className="px-4 my-2">
-        <h2 className={`text-3xl font-bold mb-6 text-center ${darkMode ? 'text-white' : 'text-gray-800'}`}>PROJECTS</h2>
+        <p className='text-center text-2xl text-blueColor uppercase'>Innovative Creations</p>
+        <h2 className={`text-3xl font-bold mb-6 text-center ${darkMode ? 'text-white' : 'text-gray-800'}`}>Projects.</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <div 
