@@ -35,24 +35,22 @@ const Header = () => {
   };
 
   const linkTextColor = darkMode ? "text-blueColor" : "text-black";
-  const navBackground = isScrolled
-    ? darkMode
-      ? "bg-customColor"
-      : "bg-white"
-    : "bg-customColor";
+  
+  // Modified nav background - always white in light mode, changes only in dark mode
+  const navBackground = darkMode 
+    ? (isScrolled ? "bg-customColor" : "bg-customColor")
+    : "bg-white";
 
   // For mobile menu background when open
-  const mobileMenuBg = isScrolled
-    ? darkMode
-      ? "bg-gray-900"
-      : "bg-white"
-    : darkMode
-    ? "bg-gray-900 bg-opacity-80"
-    : "bg-white bg-opacity-80";
+  const mobileMenuBg = darkMode
+    ? (isScrolled ? "bg-gray-900" : "bg-gray-900 bg-opacity-80")
+    : "bg-white";
 
   return (
     <nav
-      className={`md:flex fixed top-0 w-full z-50 ${navBackground} transition-colors duration-300`}
+      className={`md:flex fixed top-0 w-full z-50 ${navBackground} transition-colors duration-300 shadow-sm ${
+        isScrolled && darkMode ? "shadow-lg" : ""
+      }`}
     >
       <div className="max-w-screen-xl flex items-center justify-between md:justify-start mx-auto p-2">
         <Link
@@ -99,7 +97,7 @@ const Header = () => {
       </div>
 
       <ul
-        className={`flex-col md:flex md:flex-row  md:items-center p-2 font-semibold text-start ${
+        className={`flex-col md:flex md:flex-row md:items-center p-2 font-semibold text-start ${
           isOpen ? "flex" : "hidden"
         } ${isOpen ? mobileMenuBg : "md:bg-transparent"} md:me-4`}
       >

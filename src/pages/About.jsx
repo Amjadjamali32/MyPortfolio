@@ -90,8 +90,7 @@ const About = () => {
             <h3 className="text-2xl font-bold mb-4 text-violet-700">Full-Stack Developer</h3>
             <p className="text-lg leading-relaxed mb-6 text-blueColor">
               I'm a Full-Stack Developer with over 2 years of experience in Web
-              Development. Currently pursuing my Bachelor of Science in Computer
-              Science at Quaid-e-Awam University of Engineering, Science and
+              Development. Currently pursuing my Bachelor of Engineering in Software Engineering at Quaid-e-Awam University of Engineering, Science and
               Technology Nawabshah, I specialize in building reliable, scalable
               websites that make a difference.
             </p>
@@ -118,7 +117,7 @@ const About = () => {
                 <div>
                   <h4 className="font-semibold text-lg">Education</h4>
                   <p className="text-gray-600 dark:text-gray-300">
-                    BSc Computer Science at QUEST Nawabshah
+                    B.E Software Engineering at QUEST Nawabshah
                   </p>
                 </div>
               </div>

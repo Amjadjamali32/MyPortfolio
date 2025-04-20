@@ -9,27 +9,27 @@ const EducationCertifications = () => {
   const educationData = [
     {
       id: 1,
-      degree: "Master of Computer Science",
-      institution: "Stanford University",
-      year: "2020 - 2022",
+      degree: "B.E in Software Engineering",
+      institution: "QUEST Nawabshah",
+      year: "2021 - 2025",
       description:
-        "Specialized in Artificial Intelligence and Machine Learning. Thesis on Neural Networks Optimization.",
+        "Aspiring Software Engineer with a strong academic background, leadership experience, and a passion for technology and innovation.",
     },
     {
       id: 2,
-      degree: "Bachelor of Science in Software Engineering",
-      institution: "MIT",
-      year: "2016 - 2020",
+      degree: "Intermediate",
+      institution: "G.H.S.S Mehar Ali Jamali",
+      year: "2019 - 2021",
       description:
-        "Graduated with Honors. Minor in Data Science. President of Computer Science Club.",
+        "Completed higher secondary education with a strong interest in computer science and analytical thinking.",
     },
     {
       id: 3,
-      degree: "Bachelor of Science in Software Engineering",
-      institution: "MIT",
-      year: "2016 - 2020",
+      degree: "Matriculation ",
+      institution: "G.B.H.S Hassan Jamali",
+      year: "2017 - 2019",
       description:
-        "Graduated with Honors. Minor in Data Science. President of Computer Science Club.",
+        "Strong academic foundation with a focus on tech and leadership from an early stage.",
     },
   ];
 

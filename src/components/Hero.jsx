@@ -47,10 +47,29 @@ const Hero = () => {
       id="home"
       className={`${
         darkMode ? "bg-customColor" : "bg-white"
-      } flex flex-col lg:flex-row items-center justify-center min-h-[90vh] max-w-screen-xl mx-auto px-4 py-8 md:px-8 md:py-12`}
+      } flex flex-col lg:flex-row items-center justify-center min-h-[90vh] max-w-screen-xl mx-auto px-4 py-8 md:px-8 md:py-12 relative overflow-hidden`}
     >
+      {/* Grid Pattern Background */}
+      <div
+        className={`absolute inset-0 ${darkMode ? "opacity-80" : "opacity-90"}`}
+      >
+        <div
+          className="absolute inset-0 bg-[size:40px_40px] [mask-image:linear-gradient(0deg,transparent,rgba(0,0,0,0.1))]"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, ${
+                darkMode ? "#7c3aed" : "#8b5cf6"
+              } 2px, transparent 2px),
+linear-gradient(to bottom, ${
+              darkMode ? "#7c3aed" : "#8b5cf6"
+            } 2px, transparent 2px)
+            `,
+          }}
+        />
+      </div>
+
       {/* Text Content */}
-      <div className="flex-1 order-2 lg:order-1 w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left mb-8 lg:mb-0">
+      <div className="flex-1 order-2 lg:order-1 w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left mb-8 lg:mb-0 z-10">
         <h1
           className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-2 ${
             darkMode ? "text-white" : "text-black"
@@ -103,7 +122,7 @@ const Hero = () => {
       </div>
 
       {/* Image */}
-      <div className="flex-1 order-1 lg:order-2 w-full lg:w-1/2 flex justify-center">
+      <div className="flex-1 order-1 lg:order-2 w-full lg:w-1/2 flex justify-center z-10">
         <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72">
           <img
             src={picture}
