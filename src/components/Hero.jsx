@@ -47,7 +47,7 @@ const Hero = () => {
       id="home"
       className={`${
         darkMode ? "bg-customColor" : "bg-white"
-      } flex flex-col lg:flex-row items-center justify-center min-h-[90vh] max-w-screen-xl mx-auto px-4 py-8 md:px-8 md:py-12 relative overflow-hidden xl:max-w-full`}
+      } flex flex-col lg:flex-row items-center justify-center min-h-[90vh] w-full mx-auto px-4 py-8 md:px-8 md:py-12 lg:px-12 xl:px-24 2xl:px-32 relative overflow-hidden`}
     >
       {/* Grid Pattern Background */}
       <div
@@ -60,9 +60,9 @@ const Hero = () => {
               linear-gradient(to right, ${
                 darkMode ? "#7c3aed" : "#8b5cf6"
               } 2px, transparent 2px),
-linear-gradient(to bottom, ${
-              darkMode ? "#7c3aed" : "#8b5cf6"
-            } 2px, transparent 2px)
+              linear-gradient(to bottom, ${
+                darkMode ? "#7c3aed" : "#8b5cf6"
+              } 2px, transparent 2px)
             `,
           }}
         />
@@ -71,7 +71,7 @@ linear-gradient(to bottom, ${
       {/* Text Content */}
       <div className="flex-1 order-2 lg:order-1 w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left mb-8 lg:mb-0 z-10">
         <h1
-          className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-2 ${
+          className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-8xl font-bold mb-2 ${
             darkMode ? "text-white" : "text-black"
           }`}
         >
@@ -80,13 +80,13 @@ linear-gradient(to bottom, ${
           <img
             src={wave}
             alt="wave"
-            className="w-12 h-12 sm:w-16 sm:h-16 inline-block ml-2"
+            className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 inline-block ml-2"
           />
         </h1>
 
-        <div className="h-16 sm:h-20 mb-4 flex items-center">
+        <div className="h-16 sm:h-20 lg:h-24 xl:h-28 mb-4 flex items-center">
           <h2
-            className={`text-xl sm:text-2xl md:text-3xl font-semibold ${
+            className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-5xl font-semibold ${
               darkMode ? "text-violet-700" : "text-blueColor"
             }`}
           >
@@ -99,7 +99,7 @@ linear-gradient(to bottom, ${
         </div>
 
         <p
-          className={`text-lg sm:text-xl md:text-2xl mb-8 max-w-lg ${
+          className={`text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl mb-8 max-w-lg lg:max-w-xl xl:max-w-2xl ${
             darkMode ? "text-gray-200" : "text-gray-700"
           }`}
         >
@@ -113,7 +113,7 @@ linear-gradient(to bottom, ${
               whileHover={{ scale: 1.1, y: -4 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="px-8 py-3 font-bold bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full shadow-lg hover:shadow-[0_4px_20px_rgba(124,58,237,0.6)] transition-all duration-300"
+              className="px-8 py-3 lg:px-10 lg:py-4 xl:px-12 xl:py-5 text-lg lg:text-xl xl:text-xl font-bold bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full shadow-lg hover:shadow-[0_4px_20px_rgba(124,58,237,0.6)] transition-all duration-300"
             >
               Contact Me
             </motion.button>
@@ -123,7 +123,7 @@ linear-gradient(to bottom, ${
 
       {/* Image */}
       <div className="flex-1 order-1 lg:order-2 w-full lg:w-1/2 flex justify-center z-10">
-        <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72">
+        <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96">
           <img
             src={picture}
             alt="Amjad Ali"
