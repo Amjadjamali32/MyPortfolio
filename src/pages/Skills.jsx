@@ -51,8 +51,6 @@ const Skills = () => {
       icon: <FaReact className="w-full h-full" />,
       color: "text-blue-500",
     },
-    // { title: "Next.js", icon: <SiNextdotjs className="w-full h-full" />, color: "text-black dark:text-white" },
-    // { title: "TypeScript", icon: <SiTypescript className="w-full h-full" />, color: "text-blue-600" },
     {
       title: "Node.js",
       icon: <FaNodeJs className="w-full h-full" />,
@@ -113,68 +111,70 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className={`py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto ${
+      className={`py-12 px-4 sm:px-6 lg:px-8 w-full ${
         darkMode ? "bg-customColor" : "bg-bg-light"
       }`}
     >
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        className="text-center mb-12"
-      >
-        <p className="text-lg text-blueColor mb-2 uppercase">
-          Technical Proficiencies
-        </p>
-        <h2
-          className={`text-4xl sm:text-5xl font-extrabold my-4 ${
-            darkMode ? "text-white" : "text-gray-800"
-          }`}
+      <div className="w-full mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
         >
-          Skills.
-        </h2>
-        <p
-          className={`text-lg ${
-            darkMode ? "text-gray-300" : "text-gray-600"
-          } max-w-2xl mx-auto`}
-        >
-          Technologies I've been working with recently
-        </p>
-      </motion.div>
-
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6"
-      >
-        {skills.map((skill, index) => (
-          <motion.div
-            key={index}
-            variants={item}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex flex-col items-center"
+          <p className="text-lg text-blueColor mb-2 uppercase">
+            Technical Proficiencies
+          </p>
+          <h2
+            className={`text-4xl sm:text-5xl font-extrabold my-4 ${
+              darkMode ? "text-white" : "text-gray-800"
+            }`}
           >
-            <div
-              className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-3 ${
-                darkMode ? "bg-gray-800" : "bg-gray-100"
-              } shadow-lg hover:shadow-xl transition-shadow`}
+            Skills.
+          </h2>
+          <p
+            className={`text-lg ${
+              darkMode ? "text-gray-300" : "text-gray-600"
+            } max-w-2xl mx-auto`}
+          >
+            Technologies I've been working with recently
+          </p>
+        </motion.div>
+
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 max-w-7xl mx-auto"
+        >
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              variants={item}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex flex-col items-center"
             >
-              <div className={`w-12 h-12 ${skill.color}`}>{skill.icon}</div>
-            </div>
-            <p
-              className={`text-lg font-medium ${
-                darkMode ? "text-white" : "text-gray-800"
-              }`}
-            >
-              {skill.title}
-            </p>
-          </motion.div>
-        ))}
-      </motion.div>
+              <div
+                className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-3 ${
+                  darkMode ? "bg-gray-800" : "bg-gray-100"
+                } shadow-lg hover:shadow-xl transition-shadow`}
+              >
+                <div className={`w-12 h-12 ${skill.color}`}>{skill.icon}</div>
+              </div>
+              <p
+                className={`text-lg font-medium ${
+                  darkMode ? "text-white" : "text-gray-800"
+                }`}
+              >
+                {skill.title}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 };
