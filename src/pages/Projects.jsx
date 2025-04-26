@@ -51,9 +51,8 @@ const Projects = () => {
             Innovative Creations
           </p>
           <h2 className={`text-3xl md:text-4xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-            My Projects
+            My Projects.
           </h2>
-          <div className={`w-20 h-1 mx-auto mt-4 ${darkMode ? 'bg-blue-600' : 'bg-blue-500'}`}></div>
         </motion.div>
 
         <motion.div

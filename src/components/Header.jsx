@@ -35,15 +35,19 @@ const Header = () => {
   };
 
   const linkTextColor = darkMode ? "text-blueColor" : "text-black";
-  
+
   // Modified nav background - always white in light mode, changes only in dark mode
-  const navBackground = darkMode 
-    ? (isScrolled ? "bg-customColor" : "bg-customColor")
+  const navBackground = darkMode
+    ? isScrolled
+      ? "bg-customColor"
+      : "bg-customColor"
     : "bg-white";
 
   // For mobile menu background when open
   const mobileMenuBg = darkMode
-    ? (isScrolled ? "bg-gray-900" : "bg-gray-900 bg-opacity-80")
+    ? isScrolled
+      ? "bg-gray-900"
+      : "bg-gray-900 bg-opacity-80"
     : "bg-white";
 
   return (
@@ -77,7 +81,11 @@ const Header = () => {
           aria-expanded={isOpen}
         >
           {isOpen ? (
-            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24">
+            <svg
+              className={`w-6 h-6 ${darkMode ? "text-white" : "text-black"}`}
+              fill="none"
+              viewBox="0 0 24 24"
+            >
               <path
                 stroke="currentColor"
                 strokeWidth="2"
@@ -85,7 +93,11 @@ const Header = () => {
               />
             </svg>
           ) : (
-            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24">
+            <svg
+              className={`w-6 h-6 ${darkMode ? "text-white" : "text-black"}`}
+              fill="none"
+              viewBox="0 0 24 24"
+            >
               <path
                 stroke="currentColor"
                 strokeWidth="2"

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
-import axios from "axios";
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
 import { ToastContainer, toast } from "react-toastify";
@@ -14,7 +13,6 @@ const Contact = () => {
     reset,
     formState: { errors, isSubmitting },
   } = useForm();
-  const [recaptchaValue, setRecaptchaValue] = useState("");
   const darkMode = useSelector((state) => state.theme.darkMode);
 
   // Animation variants
@@ -42,41 +40,14 @@ const Contact = () => {
     },
   };
 
-  const onSubmit = async (data) => {
-    if (!recaptchaValue) {
-      toast.error("Please complete the reCAPTCHA!", {
-        position: "top-right",
-        autoClose: 5000,
-        theme: darkMode ? "dark" : "light",
-      });
-      return;
-    }
-
-    try {
-      const response = await axios.post("/api/contact", {
-        ...data,
-        "g-recaptcha-response": recaptchaValue,
-      });
-      if (response.status === 200) {
-        toast.success("Message sent successfully!", {
-          position: "top-right",
-          autoClose: 5000,
-          theme: darkMode ? "dark" : "light",
-        });
-        reset();
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      toast.error("Failed to send message. Please try again.", {
-        position: "top-right",
-        autoClose: 5000,
-        theme: darkMode ? "dark" : "light",
-      });
-    }
-  };
-
-  const handleRecaptchaChange = (value) => {
-    setRecaptchaValue(value);
+  const onSubmit = () => {
+    // Netlify will handle the submission automatically
+    toast.success("Message sent successfully!", {
+      position: "top-right",
+      autoClose: 5000,
+      theme: darkMode ? "dark" : "light",
+    });
+    reset();
   };
 
   return (
@@ -136,7 +107,25 @@ const Contact = () => {
                 Send a Message
               </h3>
 
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="space-y-6"
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                data-netlify-recaptcha="true"
+                netlify-honeypot="bot-field"
+              >
+                <input type="hidden" name="form-name" value="contact" />
+
+                {/* Honeypot field */}
+                <div className="hidden">
+                  <label>
+                    Don't fill this out if you're human:{" "}
+                    <input name="bot-field" />
+                  </label>
+                </div>
+
                 <div>
                   <label
                     htmlFor="username"
@@ -149,6 +138,7 @@ const Contact = () => {
                   <input
                     type="text"
                     id="username"
+                    name="user_name"
                     className={`w-full px-4 py-3 rounded-lg border ${
                       errors.user_name
                         ? "border-red-500"
@@ -182,6 +172,7 @@ const Contact = () => {
                   <input
                     type="email"
                     id="user_mail"
+                    name="email"
                     className={`w-full px-4 py-3 rounded-lg border ${
                       errors.email
                         ? "border-red-500"
@@ -220,6 +211,7 @@ const Contact = () => {
                   </label>
                   <textarea
                     id="msg"
+                    name="user_message"
                     rows="5"
                     className={`w-full px-4 py-3 rounded-lg border ${
                       errors.user_message
@@ -244,12 +236,8 @@ const Contact = () => {
                   )}
                 </div>
 
-                {/* reCAPTCHA */}
-                <div
-                  className="g-recaptcha"
-                  data-sitekey="your-site-key"
-                  data-callback={handleRecaptchaChange}
-                ></div>
+                {/* Netlify reCAPTCHA */}
+                <div data-netlify-recaptcha="true"></div>
 
                 <motion.button
                   type="submit"
@@ -369,7 +357,7 @@ const Contact = () => {
                         Phone
                       </h4>
                       <a
-                        href="+923262600358"
+                        href="tel:+923262600358"
                         className={`text-xs ${
                           darkMode
                             ? "text-blue-400 hover:text-blue-300"
