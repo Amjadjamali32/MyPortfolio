@@ -6,6 +6,7 @@ import taskManagerImage from "./assets/task_manager.png"
 import ecommerceStoreImage from "./assets/aj.png"
 import ecomImage from "./assets/ecommerce.png"
 import crimeGPT from "./assets/crimegpt.png"
+import TurboTalk from "./assets/gen.png"
 
 export const projectsData = [
     {
@@ -23,6 +24,14 @@ export const projectsData = [
         "skills": ["React.js", "JavaScript", "Node.js"],
         "demo": "https://amjadjamali.netlify.app/",
         "source": "https://github.com/Amjadjamali32/MyPersonalPortfolio.git"
+    },
+    {
+        "title": "Turbo-Talk",
+        "imageSrc": TurboTalk,
+        "description": "A simple chatbot built using Groq cloud and llama-3. Its a simple chatbot where you can ask any question and it will answer you.",
+        "skills": ["Gen AI", "Python", "Gradio"],
+        "demo": "https://huggingface.co/spaces/amjad21sw18/Turbo_talk",
+        "source": "https://huggingface.co/spaces/amjad21sw18/Turbo_talk"
     },
     {
         "title": "Personal Portfolio Website",
