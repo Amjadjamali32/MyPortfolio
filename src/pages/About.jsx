@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdSchool, MdWork, MdBuild, MdLightbulb } from "react-icons/md";
 import profileImage from "../assets/myimage.png";
-import resumePDF from "../assets/Amjad Ali Resume.pdf";
+import resumePDF from "../assets/updated Resume.pdf";
 
 const About = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
