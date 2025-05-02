@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdSchool, MdWork, MdBuild, MdLightbulb } from "react-icons/md";
 import profileImage from "../assets/myimage.png";
-import resumePDF from "../assets/updated Resume.pdf";
+import resumePDF from "../assets/Updated Resume.pdf";
 
 const About = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
@@ -10,7 +10,9 @@ const About = () => {
   return (
     <section
       id="about"
-      className={`w-full ${darkMode ? "bg-customColor text-white" : "bg-white text-black"}`}
+      className={`w-full ${
+        darkMode ? "bg-customColor text-white" : "bg-white text-black"
+      }`}
     >
       <div className="max-w-screen-xl mx-auto p-6 py-6">
         {/* Centered Headings */}
@@ -89,11 +91,11 @@ const About = () => {
                 Full-Stack Developer
               </h3>
               <p className="text-lg leading-relaxed mb-6 text-blueColor">
-                I'm a Full-Stack Developer with over 2 years of experience in Web
-                Development. Currently pursuing my Bachelor of Engineering in
-                Software Engineering at Quaid-e-Awam University of Engineering,
-                Science and Technology Nawabshah, I specialize in building
-                reliable, scalable websites that make a difference.
+                I'm a Full-Stack Developer with over 2 years of experience in
+                Web Development. Currently pursuing my Bachelor of Engineering
+                in Software Engineering at Quaid-e-Awam University of
+                Engineering, Science and Technology Nawabshah, I specialize in
+                building reliable, scalable websites that make a difference.
               </p>
             </div>
 
