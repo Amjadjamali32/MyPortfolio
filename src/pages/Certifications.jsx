@@ -3,6 +3,7 @@ import { FaGraduationCap, FaCertificate } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import GoogleLogo from "../assets/google.png";
 import MetaLogo from "../assets/meta.png";
+import PECLogo from "../assets/pec_logo.png";
 
 const EducationCertifications = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
@@ -56,8 +57,8 @@ const EducationCertifications = () => {
       desc: "This is my HTML and CSS in depth certificate from Meta, which I earned in 2023. It covers advanced topics in HTML and CSS.",
     },
     {
-      id: 4,
-      title: "Google UX Design Professional Certificate",
+      id: 3,
+      title: "Google UX Design",
       issuer: "Google",
       year: "2024",
       credentialId: "BBGP5IMIITE6",
@@ -65,13 +66,22 @@ const EducationCertifications = () => {
       desc: "This is my Google UX Design Professional Certificate, which I earned in 2024. It covers the principles of UX design.",
     },
     {
-      id: 3,
-      title: "Programming With JavaScript",
+      id: 4,
+      title: "Programming in JavaScript",
       issuer: "Meta",
       year: "2023",
       credentialId: "YY8KRK89RE84",
       icon: <img src={MetaLogo} alt="Meta" className="w-7 h-7" />,
       desc: "This is my Programming With JavaScript certificate from Meta, which I earned in 2023. It covers the fundamentals of JavaScript programming.",
+    },
+    {
+      id: 5,
+      title: "AI Application Developer",
+      issuer: "PEC",
+      year: "2025",
+      credentialId: "21SW18",
+      icon: <img src={PECLogo} alt="pec" className="w-7 h-7" />,
+      desc: "This is my AI Application Developer certificate from PEC, which I earned in 2025. It covers the development of AI applications.",
     }
   ];
 
