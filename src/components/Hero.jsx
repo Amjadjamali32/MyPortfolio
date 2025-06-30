@@ -3,12 +3,14 @@ import picture from "../assets/picture.png";
 import { useSelector } from "react-redux";
 import wave from "../assets/wave.gif";
 import { motion } from "framer-motion";
+import { FaArrowUp } from "react-icons/fa";
 
 const Hero = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
   const [typedText, setTypedText] = useState("");
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
   const skills = [
     "Software Engineer",
@@ -20,6 +22,7 @@ const Hero = () => {
     "JavaScript Expert",
   ];
 
+  // Typing effect logic
   useEffect(() => {
     const typingSpeed = isDeleting ? 50 : 100;
     const currentSkill = skills[currentSkillIndex];
@@ -42,6 +45,28 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, [typedText, currentSkillIndex, isDeleting]);
 
+  // Scroll to top button visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section
       id="home"
@@ -49,6 +74,26 @@ const Hero = () => {
         darkMode ? "bg-customColor" : "bg-white"
       } flex flex-col lg:flex-row items-center justify-center min-h-[90vh] w-full mx-auto px-4 py-8 md:px-8 md:py-12 lg:px-12 xl:px-24 2xl:px-32 relative overflow-hidden`}
     >
+      {/* Scroll to top button */}
+      {showScrollButton && (
+        <motion.button
+          onClick={scrollToTop}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className={`fixed bottom-8 right-8 z-50 p-3 rounded-full shadow-lg ${
+            darkMode
+              ? "bg-violet-600 hover:bg-violet-700"
+              : "bg-violet-500 hover:bg-violet-600"
+          } text-white transition-all duration-300`}
+          aria-label="Scroll to top"
+        >
+          <FaArrowUp className="text-xl" />
+        </motion.button>
+      )}
+
       {/* Grid Pattern Background */}
       <div
         className={`absolute inset-0 ${darkMode ? "opacity-80" : "opacity-90"}`}

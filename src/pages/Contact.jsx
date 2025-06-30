@@ -119,7 +119,7 @@ const Contact = () => {
                 <input type="hidden" name="form-name" value="contact" />
 
                 {/* Honeypot field */}
-                <div className="hidden">
+                <div className="hidden" style={{ display: 'none' }}>
                   <label>
                     Don't fill this out if you're human:{" "}
                     <input name="bot-field" />
