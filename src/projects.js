@@ -14,7 +14,7 @@ export const projectsData = [
         "imageSrc": crimeGPT,
         "description": "A web-based application that simplifies crime reporting using AI and NLP.",
         "skills": ["MERN", "JavaScript", "Node.js"],
-        "demo": "https://amjadjamali.netlify.app/",
+        "demo": "https://crime-gpt.netlify.app/",
         "source": "https://github.com/Amjadjamali32/MyPersonalPortfolio.git"
     },
     {
